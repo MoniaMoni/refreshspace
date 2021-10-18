@@ -32,7 +32,7 @@ function setHeaderMarginTop() {
 setHeaderMarginTop();
 
 
-// ON/OFF navbar menue on mobile
+// ON/OFF navbar menu on mobile
 
 const navIcon = document.querySelector('.nav-icon');
 const navbarMobile = document.querySelector('#navbar');
@@ -61,7 +61,9 @@ navArrow.addEventListener('click', () => {
 // close menu after click on a link
 // if statement for prevent display nav-icon od big screen
 
-if(Number(window.visualViewport.width) < 550) {
+const viewportWidth = Number(window.visualViewport.width);
+
+if(Number(viewportWidth) < 550) {
 
     for(let i = 0; i < navLinkMobile.length; i++) {
         navLinkMobile[i].addEventListener('click', () => {
@@ -100,6 +102,23 @@ function setHomeIconMargin() {
 }
 
 setHomeIconMargin();
+
+// add images placeholder
+
+const galleryPhotos = document.querySelectorAll('.gallery-photo');
+let photosContainer = document.querySelector('#gallery div.c-flex');
+let photosModuloBy2 = galleryPhotos.length % 2;
+let photosModuloBy4 = galleryPhotos.length % 4;
+
+if((viewportWidth > 800) && (photosModuloBy4 != 0)) {
+    for(let i = 0; i < (4 - photosModuloBy4); i++) {
+        photosContainer.innerHTML += '<img class="gallery-photo" src="" alt="" style= "visibility: hidden;">';
+    }
+} if ((viewportWidth < 800) && (viewportWidth > 550) && photosModuloBy2 != 0) {
+    photosContainer.innerHTML += '<img class="gallery-photo" src="" alt="" style= "visibility: hidden;">';
+}
+
+console.log();
 
 
 // document.addEventListener('scroll', () => {
