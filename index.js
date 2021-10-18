@@ -1,6 +1,6 @@
 let listItems = document.querySelectorAll('li');
 let listItemsEmbedded = document.querySelectorAll('.embedded li');
-const listImagePath = '<img class="list-img" src="pictures/pettit.png"/>   '
+const listImagePath = '<img class="list-img" src="pictures/icons/petit.png"/>   '
 
 function addListImage() {
     for(let j = 0; j < listItemsEmbedded.length; j++) {
@@ -45,10 +45,11 @@ navIcon.addEventListener('click', () => {
     navIcon.style.display = 'none';
     navbarMobile.classList.add('navbar-mobile');
     navArrow.classList.add('nav-arrow-mobile');
-    
+
     for(let i = 0; i < navLinkMobile.length; i++) {
         navLinkMobile[i].classList.add('nav-mobile');
     }
+    
 });
 
 // close menu by arrow
@@ -58,11 +59,17 @@ navArrow.addEventListener('click', () => {
 });
 
 // close menu after click on a link
-for(let i = 0; i < navLinkMobile.length; i++) {
-    navLinkMobile[i].addEventListener('click', () => {
-        hideNavMenu();
-    });
+// if statement for prevent display nav-icon od big screen
+
+if(Number(window.visualViewport.width) < 550) {
+
+    for(let i = 0; i < navLinkMobile.length; i++) {
+        navLinkMobile[i].addEventListener('click', () => {
+            hideNavMenu();
+        });
+    }
 }
+
 
 function hideNavMenu() {
     
@@ -93,3 +100,8 @@ function setHomeIconMargin() {
 }
 
 setHomeIconMargin();
+
+
+// document.addEventListener('scroll', () => {
+//     console.log(window.visualViewport.pageTop);
+// })
