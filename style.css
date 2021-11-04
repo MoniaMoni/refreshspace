@@ -93,8 +93,7 @@ ul {
 }
 
 #contact {
-    display: flex;
-    flex-wrap: wrap;
+    text-align: center;
     min-height: 30vh;
     background-color: #e85a4f;
 }
@@ -106,6 +105,18 @@ ul {
     /* border: solid blue 1px; */
     max-width: 60rem;
     margin: 0 auto;
+}
+
+.contact-header {
+    padding: 0;
+}
+
+.contact-data {
+    color: #000B29;
+}
+
+.contact-data:hover {
+    border-bottom: solid 1px #000B29;
 }
 
 .c-flex {
@@ -138,8 +149,7 @@ ul {
 
 .header-img {
     width: 70vw;
-    min-height: 70vw;
-    object-fit: cover;
+    /* object-fit: cover; */
     border-radius: 100%;
     position: absolut;
     left: 2.5vw;
@@ -282,11 +292,13 @@ ul {
     }
 
     .home-icon {
-        width: 4vw;
+        width: 3vw;
+        padding: 60%;
     }
 
     .nav-icon {
         display: none;
+        padding: 2vw;
     }
 
     .nav-link {
@@ -308,6 +320,23 @@ ul {
     }
 
     .home-icon {
-        width: 7vw;
+        width: 5vw;
+    }
+
+}
+
+@media screen and (min-width: 1500px) {
+    .header-img {
+        width: 800px;
+        min-height: 800px;
+        
+    }
+
+    h1 {
+        font-size: 2.75rem;
+    }
+
+    .home-icon {
+        width: 2vw;
     }
 }

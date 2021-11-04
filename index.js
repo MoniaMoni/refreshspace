@@ -94,9 +94,13 @@ function setHomeIconMargin() {
 
     let marginWidth = Math.floor(containerMargin - homeIconWidth);
     if(marginWidth > 0) {
-        document.querySelector('.home-icon-container').style.marginRight = marginWidth + 'px';
+        document.querySelector('.home-icon-container').style.marginRight = marginWidth * 0.8 + 'px';
+        console.log("first");
     } else if(marginWidth <= 0 && containerMargin > 0) {
-        document.querySelector('.home-icon-container').style.marginRight = containerMargin + 'px';
+        document.querySelector('.home-icon-container').style.right = containerMargin + 'px';
+        document.querySelector('.home-icon').style.marginRight = containerMargin + 'px';
+        console.log("second");
+        console.log(containerMargin);
     }
     
 }
