@@ -59,7 +59,7 @@ navArrow.addEventListener('click', () => {
 });
 
 // close menu after click on a link
-// if statement for prevent display nav-icon od big screen
+// if statement for prevent display nav-icon on big screen
 
 const viewportWidth = Number(window.visualViewport.width);
 
@@ -71,7 +71,6 @@ if(Number(viewportWidth) < 550) {
         });
     }
 }
-
 
 function hideNavMenu() {
     
@@ -85,27 +84,41 @@ function hideNavMenu() {
 
 }
 
-const mainContainer = document.querySelector('.container');
-const homeIcon = document.querySelector('.home-icon-container');
-let containerMargin = getNumberOfPx(mainContainer, 'margin-right');
-let homeIconWidth = getNumberOfPx(homeIcon, 'width');
+/* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
+var prevScrollpos = window.pageYOffset;
 
-function setHomeIconMargin() {
-
-    let marginWidth = Math.floor(containerMargin - homeIconWidth);
-    if(marginWidth > 0) {
-        document.querySelector('.home-icon-container').style.marginRight = marginWidth * 0.8 + 'px';
-        console.log("first");
-    } else if(marginWidth <= 0 && containerMargin > 0) {
-        document.querySelector('.home-icon-container').style.right = containerMargin + 'px';
-        document.querySelector('.home-icon').style.marginRight = containerMargin + 'px';
-        console.log("second");
-        console.log(containerMargin);
-    }
-    
+window.onscroll = function() {
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollPos > currentScrollPos) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top =  "-" + navHeight + "px";
+  }
+  prevScrollPos = currentScrollPos;
 }
 
-setHomeIconMargin();
+
+// const mainContainer = document.querySelector('.container');
+// const homeIcon = document.querySelector('.home-icon-container');
+// let containerMargin = getNumberOfPx(mainContainer, 'margin-right');
+// let homeIconWidth = getNumberOfPx(homeIcon, 'width');
+
+// function setHomeIconMargin() {
+
+//     let marginWidth = Math.floor(containerMargin - homeIconWidth);
+//     if(marginWidth > 0) {
+//         document.querySelector('.home-icon-container').style.marginRight = marginWidth * 0.2 + 'px';
+//         console.log("first");
+//     } else if(marginWidth <= 0 && containerMargin > 0) {
+//         document.querySelector('.home-icon-container').style.right = containerMargin + 'px';
+//         document.querySelector('.home-icon').style.marginRight = containerMargin + 'px';
+//         console.log("second");
+//         console.log(containerMargin);
+//     }
+    
+// }
+
+// setHomeIconMargin();
 
 // add images placeholder
 
@@ -125,6 +138,3 @@ if((viewportWidth > 800) && (photosModuloBy4 != 0)) {
 console.log();
 
 
-// document.addEventListener('scroll', () => {
-//     console.log(window.visualViewport.pageTop);
-// })
