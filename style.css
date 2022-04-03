@@ -67,6 +67,8 @@ ul {
     z-index: 1;
     max-width: 60rem;
     padding: 0 0 2em 0;
+    position: fixed;
+    top: 0;
     transition: top 0.3s;
     /* background-image: linear-gradient(to left, #eae7dc, #8e8d8a); */
 }
@@ -143,7 +145,6 @@ ul {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    border: solid blue 2px;
 }
 
 .header-img {
@@ -335,7 +336,6 @@ ul {
     .header-img {
         width: 800px;
         min-height: 800px;
-        
     }
 
     h1 {
