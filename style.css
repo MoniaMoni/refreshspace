@@ -7,11 +7,6 @@
 #e98074
 #e85a4f */
 
-/* Alternative */
-
-
-
-
 /* MAIN */
 /* miękkie przewijanie strony podczas przeskoku z linków wewnętrznych */
 html {
@@ -45,12 +40,11 @@ h1 {
 }
 
 h2 {
-    padding-left: 2.5vw;
     margin-top: 0;
+    margin-bottom: 2.5rem;
 }
 
 h3 {
-    padding-left: 2.5vw;
     margin: 0;
 }
 
@@ -61,8 +55,7 @@ img {
 ul {
     width: 95%;
     padding: 0;
-    /* padding-left: 2.5vw; */
-    margin: 0 auto;
+    margin: 1rem auto;
     color: #000B29;
     list-style: none;
     transition: top 0.3s;
@@ -111,6 +104,11 @@ ul {
     text-align: center;
     margin: 2.5rem auto;
     background-image: none;
+}
+
+#services h2,
+#services h3 {
+    padding-left: 2.5vw;
 }
 
 /* CLASSES */
@@ -281,10 +279,13 @@ ul {
     display: block;
 }
 
-.break-line{
-    width: 30vw;
-    margin: 0 auto 2rem;
-    border-top: dotted rgba(142,141,138,0.8) 0.5rem;
+.break-line {
+    width: 15vw;
+    margin: 0 auto 4rem;
+    border-top: dotted rgba(142,141,138,0.3) 0.5rem;
+}
+.break-line:hover {
+    border-color: rgba(232,90,79,0.5);
 }
 
 .services {
@@ -302,15 +303,31 @@ ul {
     margin: 0 auto; 
     padding: 1.25rem 0;
     background-image: repeating-linear-gradient(45deg, rgba(142,141,138,0.2) 1%, rgba(234,231,220) 2%);
-
-    /* border: solid 1px red; */
 }
+
+.service-desc:hover {
+    background-image: repeating-linear-gradient(45deg, rgba(232,90,79,0.2) 1%, rgba(234,231,220) 2%);
+}
+
+.service-desc.reverted {
+    background-image: repeating-linear-gradient(135deg, rgba(142,141,138,0.2) 1%, rgba(234,231,220) 2%);
+}
+
+.service-img.reverted {
+    right: -1.25rem;
+}
+
+.service-img {
+    width: 60vw;
+    position: relative;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    display: inline-block;
+}
+
 .service-img-box {
     line-height: 0;
     margin: 0 auto 2.5rem;
-
-
-    /* border: solid 1px blue; */
 }
 
 .service-img-border {
@@ -320,30 +337,14 @@ ul {
     left: 1.25rem;
     top: 1.25rem;
     background-color: rgba(142,141,138,0.6);
-
-    /* border: solid 3px greenyellow; */
-
 }
+
 .service-img-border.reverted {
     left: -1.25rem;
 }
 
-.service-img.reverted {
-    right: -1.25rem;
-}
-
-.service-desc.reverted {
-    background-image: repeating-linear-gradient(135deg, rgba(142,141,138,0.2) 1%, rgba(234,231,220) 2%);
-}
-
-.service-img {
-    width: 60vw;
-    position: relative;
-    right: 1.25rem;
-    bottom: 1.25rem;
-
-    display: inline-block;
-
+.service-desc.reverted:hover {
+    background-image: repeating-linear-gradient(135deg, rgba(232,90,79,0.2) 1%, rgba(234,231,220) 2%);
 }
 
 /* MEDIA */
@@ -357,7 +358,6 @@ ul {
         top: 2em;
         padding-right: 1.25vw;
         padding-left: 1.25vw;
-        /* background-color: rgba(142,141,138, 0.15); */
         background-image: repeating-linear-gradient(135deg, rgba(142,141,138, 0.15) 1%, rgba(234,231,220, 0.2) 2%);
     }
 
@@ -386,7 +386,6 @@ ul {
         min-height: 40vw;
         left: 2.5vw;
         top: 2.5vw;
-        /* margin-left: 2.5vw; */
     }
 
     .header-img-border {
@@ -432,6 +431,67 @@ ul {
 
     .nav-link.home-page {
         padding-left: 0;
+    }
+
+
+    .break-line {
+        margin-bottom: 3rem;
+    }
+
+    .services {
+        text-align: center;
+    }
+    
+    .service-detal {
+        margin-bottom: 4rem;
+        position: relative;
+    }
+    
+    .service-desc {
+        display: block;
+        width: 35vw;
+        position: absolute;
+        left: 0;
+        top: 10vw;
+        margin: 0; 
+        padding-top: 2.25rem;
+        padding-bottom: 2.25rem;
+    }
+   
+    .service-img {
+        width: 30vw;
+        object-fit: cover;
+        min-height: 30vw;
+    }
+
+    .service-img-box {
+        line-height: 0;
+        margin: 0;
+        display: block;
+        max-width: fit-content;
+        position: relative;
+        left: 32.5vw;
+    }
+    
+    .service-img-border {
+        margin: 0;
+        max-width: fit-content;
+        position: relative;
+        left: 1.25rem;
+        top: 1.25rem;
+        background-color: rgba(142,141,138,0.6);
+    }
+
+    .service-img-box.reverted {
+        left: 0;
+    }
+
+    .service-img-border.reverted {
+        left: -1.25rem;
+    }
+    
+    .service-desc.reverted {
+        left: 27.5vw;
     }
 }
 
