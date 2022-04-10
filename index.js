@@ -17,6 +17,7 @@ addListImage();
 let navbar = document.querySelector('#navbar');
 let navHeight = getNumberOfPx(navbar, 'height');
 let navPadding =  getNumberOfPx(navbar, 'padding-bottom');
+const viewportWidth = Number(window.visualViewport.width);
 
 function getNumberOfPx(element, property) {
     let dimension = window.getComputedStyle(element).getPropertyValue(property).slice(0,-2);
@@ -24,9 +25,13 @@ function getNumberOfPx(element, property) {
 }
 
 function setHeaderMarginTop() {
-    let paddingHeight = navHeight + navPadding + 'px';
-    document.querySelector('#header').style.paddingTop = paddingHeight;
-    document.querySelector('h1').style.paddingTop = paddingHeight;
+    if(Number(viewportWidth) > 550) {
+        let paddingHeight = navHeight + navPadding + 'px';
+        // document.querySelector('#header').style.marginTop = paddingHeight;
+        document.querySelector('#header').style.paddingTop = paddingHeight;
+        document.querySelector('h1').style.marginTop = paddingHeight;
+        // document.querySelector('h1').style.paddingTop = paddingHeight;
+    }
 }
 
 setHeaderMarginTop();
@@ -60,8 +65,6 @@ navArrow.addEventListener('click', () => {
 
 // close menu after click on a link
 // if statement for prevent display nav-icon on big screen
-
-const viewportWidth = Number(window.visualViewport.width);
 
 if(Number(viewportWidth) < 550) {
 
