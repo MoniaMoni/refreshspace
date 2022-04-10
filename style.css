@@ -35,7 +35,7 @@ a {
 
 h1 {
     font-size: 1.65rem;
-    padding: 2.5rem 2.5vw;
+    padding: 2.5rem 2.5vw 1rem;
     position: relative;
     top: 0.5em;
     right: 0;
@@ -141,22 +141,21 @@ ul {
     justify-content: space-between;
 }
 
-.header-img-container {
-    max-width: fit-content;
-    position: relative;
-    padding: 4vw 0 0 4vw;
-    margin: 0 auto 2rem;
-    object-fit: cover;
-    line-height: 0; /* for prevent empty line on bottom of img */
-}
-
 .mobile-top {
     width: 100vw;
-    height: 70vh;
+    height: 60vh;
     background-image: repeating-linear-gradient(45deg, rgba(142,141,138, 0.15) 1%, rgba(234,231,220, 0.2) 2%);
     position: absolute;
     top: 0;
     display: inline-block;
+}
+
+.header-img {
+    width: 70vw;
+    position: relative;
+    left: 4vw;
+    top: 4vw;
+    background-color: inherit;
 }
 
 .header-img-border {
@@ -167,12 +166,13 @@ ul {
     background-color: #d8c3a5;    
 }
 
-.header-img {
-    width: 60vw;
+.header-img-container {
+    max-width: fit-content;
     position: relative;
-    left: 4vw;
-    top: 4vw;
-    background-color: inherit;
+    padding: 4vw 0 0 4vw;
+    margin: 0 auto 2rem;
+    object-fit: cover;
+    line-height: 0; /* for prevent empty line on bottom of img */
 }
 
 .home-icon {
@@ -308,18 +308,17 @@ ul {
         /* margin-left: 2.5vw; */
     }
 
-    .header-img-container {
-        width: 45vw;
-        margin: 0 0 2.5rem;
-        padding: 2.5vw 0 0 2.5vw;
-
-    }
-
     .header-img-border {
         max-width: fit-content;
         position: relative;
         left: -2.5vw;
         top: -2.5vw;
+    }
+
+    .header-img-container {
+        width: 45vw;
+        margin: 0 0 2.5rem;
+        padding: 2.5vw 0 0 2.5vw;
     }
 
     .home-icon {
