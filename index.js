@@ -3,9 +3,11 @@ let listItemsEmbedded = document.querySelectorAll('.embedded li');
 const listImagePath = '<img class="list-img" src="pictures/icons/petit.png"/>   '
 
 function addListImage() {
+
+    // remove if after refactor 'embedded' will not be used
     for(let j = 0; j < listItemsEmbedded.length; j++) {
         listItemsEmbedded[j].innerHTML = listImagePath + listItemsEmbedded[j].innerHTML;
-    }
+    } 
 
     for(let i = 0; i < listItems.length; i++) {
         listItems[i].innerHTML =  listImagePath + listItems[i].innerHTML;
