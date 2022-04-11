@@ -29,15 +29,15 @@ function getNumberOfPx(element, property) {
 function setHeaderMarginTop() {
     if(Number(viewportWidth) > 550) {
         let paddingHeight = navHeight + navPadding + 'px';
-        // document.querySelector('#header').style.marginTop = paddingHeight;
+
         document.querySelector('#header').style.paddingTop = paddingHeight;
         document.querySelector('h1').style.marginTop = paddingHeight;
-        // document.querySelector('h1').style.paddingTop = paddingHeight;
     }
 }
 
-setHeaderMarginTop();
-
+if (document.querySelector('#header') != null) {
+    setHeaderMarginTop();
+}
 
 // ON/OFF navbar menu on mobile
 
@@ -102,29 +102,6 @@ window.onscroll = function() {
   prevScrollPos = currentScrollPos;
 }
 
-
-// const mainContainer = document.querySelector('.container');
-// const homeIcon = document.querySelector('.home-icon-container');
-// let containerMargin = getNumberOfPx(mainContainer, 'margin-right');
-// let homeIconWidth = getNumberOfPx(homeIcon, 'width');
-
-// function setHomeIconMargin() {
-
-//     let marginWidth = Math.floor(containerMargin - homeIconWidth);
-//     if(marginWidth > 0) {
-//         document.querySelector('.home-icon-container').style.marginRight = marginWidth * 0.2 + 'px';
-//         console.log("first");
-//     } else if(marginWidth <= 0 && containerMargin > 0) {
-//         document.querySelector('.home-icon-container').style.right = containerMargin + 'px';
-//         document.querySelector('.home-icon').style.marginRight = containerMargin + 'px';
-//         console.log("second");
-//         console.log(containerMargin);
-//     }
-    
-// }
-
-// setHomeIconMargin();
-
 // add images placeholder
 
 const galleryPhotos = document.querySelectorAll('.gallery-photo');
@@ -136,10 +113,33 @@ if((viewportWidth > 800) && (photosModuloBy4 != 0)) {
     for(let i = 0; i < (4 - photosModuloBy4); i++) {
         photosContainer.innerHTML += '<img class="gallery-photo" src="" alt="" style= "visibility: hidden;">';
     }
-} if ((viewportWidth < 800) && (viewportWidth > 550) && photosModuloBy2 != 0) {
+
+} if ((viewportWidth < 800) && (viewportWidth > 600) && photosModuloBy2 != 0) {
     photosContainer.innerHTML += '<img class="gallery-photo" src="" alt="" style= "visibility: hidden;">';
 }
 
-console.log();
+
+// zoom photo after click
+
+let popUpContainer = document.querySelector('.pop-up');
+let zoomImage = document.querySelector('.zoom');
+
+document.getElementById('gallery-box').addEventListener('click', (e) => {
+
+    if (e.target && e.target.matches('.gallery-photo')) {
+        console.log(e.target.src)
+
+        popUpContainer.style.display = 'inline-block';
+        zoomImage.innerHTML.src = e.target.src;
+        zoomImage.innerHTML.alt = e.target.alt;
+
+        popUpContainer.addEventListener('click', () => {
+            popUpContainer.style.display = 'none';
+            zoomImage.innerHTML.src = '';
+            zoomImage.innerHTML.alt = '';
+        });
+    }
+})
+
 
 

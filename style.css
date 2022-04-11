@@ -99,6 +99,10 @@ ul {
     background-image: linear-gradient(to top,  #e85a4f 98%, #eae7dc);
 }
 
+#gallery {
+    min-width: 100vh;
+}
+
 #gallery h1 {
     position: static;
     text-align: center;
@@ -142,6 +146,26 @@ ul {
     object-fit: cover;
     margin: 0 auto 3em;
     border-radius: 2%;
+}
+
+.pop-up {
+    display: none;
+    /* display: inline-block; */
+    position: fixed;
+    z-index: 3;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    text-align: center;
+    background-color: rgba(234,231,220, 0.8);
+}
+
+.zoom {
+    position: relative;
+    margin: 5vh auto;
+    height: 80vh;
+    object-fit: cover;
 }
 
 .gallery-container {
@@ -349,7 +373,7 @@ ul {
 
 /* MEDIA */
 /* mobile first */
-@media screen and (min-width: 550px) {
+@media screen and (min-width: 600px) {
 
     h1 {
         position: absolute;
@@ -375,10 +399,8 @@ ul {
     }
 
     .gallery-photo {
-        width: 12rem;
-        height: 16rem;
-        min-width: 22%;
-        margin: 0 0 3em;
+        width: 24%;
+        margin: 0 0 2vw;
     }
     
     .header-img {
@@ -398,7 +420,7 @@ ul {
     .header-img-container {
         width: 45vw;
         margin: 0 0 2.5rem;
-        padding: 2.5vw 0 0 2.5vw;
+        padding: 2.5vw 0 0 2rem;
     }
 
     .home-icon {
@@ -495,7 +517,7 @@ ul {
     }
 }
 
-@media screen and (min-width: 550px) and (max-width: 800px) {
+@media screen and (min-width: 600px) and (max-width: 800px) {
 
     h1 {
         font-size: 2rem;
