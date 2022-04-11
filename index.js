@@ -130,8 +130,8 @@ document.getElementById('gallery-box').addEventListener('click', (e) => {
         console.log(e.target.src)
 
         popUpContainer.style.display = 'inline-block';
-        zoomImage.innerHTML.src = e.target.src;
-        zoomImage.innerHTML.alt = e.target.alt;
+        zoomImage.src = e.target.src.replace('file:///C:/js/refreshspace/', '');
+        zoomImage.alt = e.target.alt;
 
         popUpContainer.addEventListener('click', () => {
             popUpContainer.style.display = 'none';
