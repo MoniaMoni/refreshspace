@@ -114,7 +114,7 @@ if((viewportWidth > 800) && (photosModuloBy4 != 0)) {
         photosContainer.innerHTML += '<img class="gallery-photo" src="" alt="" style= "visibility: hidden;">';
     }
 
-} if ((viewportWidth < 800) && (viewportWidth > 600) && photosModuloBy2 != 0) {
+} if ((viewportWidth < 800) && (viewportWidth > 550) && photosModuloBy2 != 0) {
     photosContainer.innerHTML += '<img class="gallery-photo" src="" alt="" style= "visibility: hidden;">';
 }
 
