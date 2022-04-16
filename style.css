@@ -14,6 +14,7 @@ html {
 }
 
 body {
+    /* background-color: white; */
     background-color: #eae7dc;
     color: #000B29;
     font-family: 'Montserrat', sans-serif;
@@ -146,13 +147,10 @@ ul {
 
 .pop-up {
     display: none;
-    /* display: inline-block; */
     position: fixed;
     z-index: 3;
-    /* top: 5%;
-    left: 5%; */
     width: 100%;
-    height: 100%;
+    height: fit-content;
     text-align: center;
     background-color: rgba(234,231,220, 0.8);
 }
@@ -308,6 +306,30 @@ ul {
 .break-line:hover {
     border-color: rgba(232,90,79,0.5);
 }
+
+
+.scroll {
+    position: absolute;
+    display: inline-block;
+    opacity: 0.8;
+    width: 5vw;
+    padding: 2.5vw;
+    z-index: 5;
+}
+.scroll:hover {
+    opacity: 1;
+
+}
+.scroll.left {
+    transform: rotate(-90deg);
+    left: 2.5vw;
+}
+.scroll.right {
+    transform: rotate(90deg);
+    right: 2.5vw;
+}
+
+
 
 .services {
     text-align: center;

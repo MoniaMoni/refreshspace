@@ -127,11 +127,14 @@ let zoomImage = document.querySelector('.zoom');
 document.getElementById('gallery-box').addEventListener('click', (e) => {
 
     if (e.target && e.target.matches('.gallery-photo')) {
-        console.log(e.target.src)
 
         popUpContainer.style.display = 'inline-block';
         zoomImage.src = e.target.src.replace('file:///C:/js/refreshspace/', '');
         zoomImage.alt = e.target.alt;
+
+
+        setScrollArrowsStyleTop()
+
 
         popUpContainer.addEventListener('click', () => {
             popUpContainer.style.display = 'none';
@@ -141,5 +144,14 @@ document.getElementById('gallery-box').addEventListener('click', (e) => {
     }
 })
 
+// set scroll arrows top position
 
 
+function setScrollArrowsStyleTop() {
+    let popUpHeight = getNumberOfPx(popUpContainer, 'height');
+    let scrollArrows = document.querySelectorAll('.scroll');
+
+    scrollArrows.forEach(arrow => {
+        arrow.style.top = Math.floor(popUpHeight * 0.4) + 'px'; 
+    });
+}
