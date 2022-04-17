@@ -109,15 +109,15 @@ let photosContainer = document.querySelector('#gallery div.c-flex');
 let photosModuloBy2 = galleryPhotos.length % 2;
 let photosModuloBy4 = galleryPhotos.length % 4;
 
-if((viewportWidth > 800) && (photosModuloBy4 != 0)) {
+if ((viewportWidth > 800) && (photosModuloBy4 != 0)) {
     for(let i = 0; i < (4 - photosModuloBy4); i++) {
         photosContainer.innerHTML += '<img class="gallery-photo" src="" alt="" style= "visibility: hidden;">';
     }
+};
 
-} if ((viewportWidth < 800) && (viewportWidth > 550) && photosModuloBy2 != 0) {
+if ((viewportWidth < 800) && (viewportWidth > 550) && photosModuloBy2 != 0) {
     photosContainer.innerHTML += '<img class="gallery-photo" src="" alt="" style= "visibility: hidden;">';
-}
-
+};
 
 // zoom photo after click
 
@@ -132,11 +132,10 @@ document.getElementById('gallery-box').addEventListener('click', (e) => {
         zoomImage.src = e.target.src.replace('file:///C:/js/refreshspace/', '');
         zoomImage.alt = e.target.alt;
 
+        setScrollArrowsStyleTop();
+        scrollPhoto(e.target, zoomImage);
 
-        setScrollArrowsStyleTop()
-
-
-        popUpContainer.addEventListener('click', () => {
+        document.querySelector('.exit').addEventListener('click', () => {
             popUpContainer.style.display = 'none';
             zoomImage.innerHTML.src = '';
             zoomImage.innerHTML.alt = '';
@@ -145,13 +144,69 @@ document.getElementById('gallery-box').addEventListener('click', (e) => {
 })
 
 // set scroll arrows top position
-
+let photosList = document.querySelectorAll('.gallery-photo');
+let scrollArrows = document.querySelectorAll('.scroll');
 
 function setScrollArrowsStyleTop() {
     let popUpHeight = getNumberOfPx(popUpContainer, 'height');
-    let scrollArrows = document.querySelectorAll('.scroll');
 
     scrollArrows.forEach(arrow => {
         arrow.style.top = Math.floor(popUpHeight * 0.4) + 'px'; 
     });
 }
+
+function scrollPhoto(photo, zoomImg) {
+    let photoIndex = findPhotoIndex(photosList, photo)
+
+    scrollArrows.forEach(e => {
+        e.addEventListener('click', (arrow) => {
+            photoIndex = incrementIndex(arrow, photoIndex)
+
+            zoomImage.src = photosList[photoIndex].src;
+            zoomImage.alt = photosList[photoIndex].alt;
+        });
+    });
+};
+
+function findPhotoIndex(list, photo) {
+    return [].indexOf.call(list, photo);
+};
+
+function incrementIndex(arrow, photoIndex) {
+    if (arrow.target.classList[1] == 'left') {
+        photoIndex = scrollToLeft(photoIndex);
+    } else {
+        photoIndex = scrollToRight(photoIndex);
+    };
+    return photoIndex;
+};
+
+function scrollToLeft(photoIndex) {
+    photoIndex -= 1
+
+    if (photoIndex > photosList.length - 1) {
+        photoIndex = 0;
+    };
+
+    if (photoIndex < 0) {
+        photoIndex = photosList.length - 1;
+    };
+
+    while (photosList[photoIndex].style.visibility == 'hidden') {
+        photoIndex -= 1;
+    };
+    return photoIndex;
+};
+
+function scrollToRight(photoIndex) {
+    photoIndex += 1
+
+    if (photoIndex > photosList.length - 1) {
+        photoIndex = 0;
+    };
+    if (photosList[photoIndex].style.visibility == 'hidden') {
+        photoIndex = 0;
+    };
+    return photoIndex;
+};
+

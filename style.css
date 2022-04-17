@@ -308,25 +308,36 @@ ul {
 }
 
 
+.exit {
+    display: inline-block;
+    position: absolute;
+    top: 1vw;
+    right: 2vw;
+    width: 4vw;
+    height: 4vw;
+    background-color: red;
+    /* background-color: rgba(234,231,220, 0.8); */
+}
 .scroll {
     position: absolute;
     display: inline-block;
     opacity: 0.8;
-    width: 5vw;
+    width: 8vw;
     padding: 2.5vw;
     z-index: 5;
 }
 .scroll:hover {
     opacity: 1;
-
 }
 .scroll.left {
     transform: rotate(-90deg);
-    left: 2.5vw;
+    left: 0;
+    padding-left: 0;
 }
 .scroll.right {
     transform: rotate(90deg);
-    right: 2.5vw;
+    right: 0;
+    padding-right: 0;
 }
 
 
