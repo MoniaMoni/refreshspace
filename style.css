@@ -31,7 +31,7 @@ a {
 
 h1 {
     font-size: 1.65rem;
-    padding: 2.5rem 2.5vw 1rem;
+    padding: 2.5rem 2.5vw;
     position: relative;
     top: 0.5em;
     right: 0;
@@ -171,8 +171,8 @@ ul {
 
 .mobile-top {
     width: 100vw;
-    height: 60vh;
-    background-image: repeating-linear-gradient(45deg, rgba(142,141,138, 0.15) 1%, rgba(234,231,220, 0.2) 2%);
+    height: 50vh;
+    background-image: repeating-linear-gradient(45deg, rgba(142,141,138, 0.2) 1%, rgba(234,231,220, 0.2) 2%);
     position: absolute;
     top: 0;
     display: inline-block;
@@ -304,9 +304,10 @@ ul {
     border-top: dotted rgba(142,141,138,0.3) 0.5rem;
 }
 .break-line:hover {
-    border-color: rgba(232,90,79,0.5);
+    border-color: rgba(142,141,138,0.6);
 }
 
+/* zoom-mode gallery imgs navigation */
 
 .exit {
     display: inline-block;
@@ -326,7 +327,8 @@ ul {
     padding: 2.5vw;
     z-index: 5;
 }
-.scroll:hover {
+.scroll:hover,
+.scroll:focus {
     opacity: 1;
 }
 .scroll.left {
@@ -339,8 +341,6 @@ ul {
     right: 0;
     padding-right: 0;
 }
-
-
 
 .services {
     text-align: center;
@@ -359,8 +359,9 @@ ul {
     background-image: repeating-linear-gradient(45deg, rgba(142,141,138,0.2) 1%, rgba(234,231,220) 2%);
 }
 
-.service-desc:hover {
-    background-image: repeating-linear-gradient(45deg, rgba(232,90,79,0.2) 1%, rgba(234,231,220) 2%);
+.service-desc:hover {    
+    background-color: rgba(142,141,138,0.4);
+    background-image: none;
 }
 
 .service-desc.reverted {
@@ -398,7 +399,8 @@ ul {
 }
 
 .service-desc.reverted:hover {
-    background-image: repeating-linear-gradient(135deg, rgba(232,90,79,0.2) 1%, rgba(234,231,220) 2%);
+    background-color: rgba(142,141,138,0.4);
+    background-image: none;
 }
 
 /* MEDIA */
@@ -412,7 +414,7 @@ ul {
         top: 2em;
         padding-right: 1.25vw;
         padding-left: 1.25vw;
-        background-image: repeating-linear-gradient(135deg, rgba(142,141,138, 0.15) 1%, rgba(234,231,220, 0.2) 2%);
+        background-image: repeating-linear-gradient(135deg, rgba(142,141,138, 0.2) 1%, rgba(234,231,220, 0.2) 2%);
     }
 
     #gallery h1 {
