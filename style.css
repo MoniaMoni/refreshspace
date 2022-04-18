@@ -314,17 +314,22 @@ ul {
     position: absolute;
     top: 1vw;
     right: 2vw;
-    width: 4vw;
-    height: 4vw;
-    background-color: red;
-    /* background-color: rgba(234,231,220, 0.8); */
+    width: 6vw;
+    height: 6vw;
+    padding: 2vw;
+    opacity: 0.8;
+
+}
+.exit:hover,
+.exit:focus {
+    opacity: 1;
 }
 .scroll {
     position: absolute;
     display: inline-block;
     opacity: 0.8;
     width: 8vw;
-    padding: 2.5vw;
+    padding: 0 2.5vw 2.5vw;
     z-index: 5;
 }
 .scroll:hover,
@@ -333,13 +338,11 @@ ul {
 }
 .scroll.left {
     transform: rotate(-90deg);
-    left: 0;
-    padding-left: 0;
+    left: -2vw;
 }
 .scroll.right {
     transform: rotate(90deg);
-    right: 0;
-    padding-right: 0;
+    right: -2vw;
 }
 
 .services {
@@ -496,6 +499,17 @@ ul {
         left: 0;
     }
 
+    .exit {
+        height: 2vw;
+        width: 2vw;
+        padding: 2vw;    
+    }
+    
+    .scroll {
+        width: 3vw;
+        padding: 2.5vw;
+    }
+
     .services {
         text-align: center;
     }
@@ -575,6 +589,15 @@ ul {
         margin-left: auto;
         margin-right: auto;
     }
+
+    .exit {
+        height: 3vw;
+        width: 3vw;
+    }
+    
+    .scroll {
+        width: 4vw;
+    }
 }
 
 @media screen and (min-width: 800px) {
@@ -597,5 +620,14 @@ ul {
 
     .home-icon {
         width: 2vw;
+    }
+
+    .exit {
+        height: 2vw;
+        width: 2vw;
+    }
+    
+    .scroll {
+        width: 3vw;
     }
 }
