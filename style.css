@@ -394,7 +394,8 @@ ul {
     position: relative;
     left: 1.25rem;
     top: 1.25rem;
-    background-color: rgba(142,141,138,0.6);
+    background-color: #e85a4f;
+    /* background-color: rgba(142,141,138,0.6); */
 }
 
 .service-img-border.reverted {
@@ -551,7 +552,8 @@ ul {
         position: relative;
         left: 1.25rem;
         top: 1.25rem;
-        background-color: rgba(142,141,138,0.6);
+        background-color: #e85a4f;
+        /* background-color: rgba(142,141,138,0.6); */
     }
 
     .service-img-box.reverted {
