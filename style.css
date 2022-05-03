@@ -67,7 +67,6 @@ ul {
 
 #navbar {
     z-index: 2;
-    max-width: 60rem;
     padding: 0 0 2em 0;
     position: fixed;
     top: 0;
@@ -115,7 +114,6 @@ ul {
 /* CLASSES */
 
 .container {
-    max-width: 60rem;
     margin: 0 auto;
 }
 
@@ -206,6 +204,7 @@ ul {
 .home-icon {
     width: 5vw;
     padding: 2.5vw;
+    margin-right: 1vw;
     border-radius: 15%;
     background-color: rgb(234,231,220, .7);
     opacity: .7;
@@ -465,12 +464,13 @@ ul {
 
     .home-icon {
         width: 2vw;
-        padding: 60%;
+        padding: 2vw;
+        padding-bottom: 1vw;
     }
 
     .home-icon-container {
         position: fixed;
-        right: 3vw;
+        min-width: fit-content;
     }
 
     .mobile-top {
@@ -478,6 +478,7 @@ ul {
     }
 
     .navbar {
+        max-width: 60vw;
         justify-content: left;
     }
 
@@ -518,11 +519,13 @@ ul {
     .service-detal {
         margin-bottom: 4rem;
         position: relative;
+        /* border: solid 2px green; */
     }
     
     .service-desc {
         display: block;
-        width: 35vw;
+        width: 32.5vw;
+        /* min-height: 10vw; */
         position: absolute;
         left: 0;
         top: 10vw;
@@ -530,20 +533,30 @@ ul {
         padding-top: 2.25rem;
         padding-bottom: 2.25rem;
     }
-   
-    .service-img {
-        width: 30vw;
-        object-fit: cover;
-        min-height: 30vw;
+        
+    .service-desc.reverted {
+        left: 27.5vw;
     }
-
+    
     .service-img-box {
         line-height: 0;
         margin: 0;
         display: block;
         max-width: fit-content;
         position: relative;
-        left: 32.5vw;
+        right: -28.75vw;
+        /* left: 32.5vw; */
+        /* border: solid 2px red; */
+    }
+    
+    .service-img-box.reverted {
+        left: 1.25vw;
+    }
+   
+    .service-img {
+        width: 30vw;
+        object-fit: cover;
+        min-height: 30vw;
     }
     
     .service-img-border {
@@ -553,19 +566,10 @@ ul {
         left: 1.25rem;
         top: 1.25rem;
         background-color: #e85a4f;
-        /* background-color: rgba(142,141,138,0.6); */
-    }
-
-    .service-img-box.reverted {
-        left: 0;
     }
 
     .service-img-border.reverted {
         left: -1.25rem;
-    }
-    
-    .service-desc.reverted {
-        left: 27.5vw;
     }
 
     .zoom {
@@ -606,6 +610,10 @@ ul {
 
     #gallery {
         min-width: 100vh;
+    }
+
+    .container {
+        max-width: 60vw;
     }
 }
 
