@@ -147,10 +147,12 @@ reset_button.addEventListener('click', () => {
   if (out_table.hidden == false) {
     out_table.hidden = true;
   }
-  
+
   document.querySelectorAll('input[type="number"]').forEach((number) => {
     number.value = '';
   });
 
   console.log(sum)
 })
+
+// generate table rows
