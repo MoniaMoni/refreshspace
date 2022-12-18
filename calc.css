@@ -42,12 +42,21 @@ button.reset:hover {
 input {
   font-family: 'Montserrat', sans-serif;
   padding: 0.5rem 1rem;
-  margin: 0.5rem;
+  margin: 0.8rem;
   border-radius: 15px;
 }
 
 input[type=number] {
   min-width: 18%;
+  display: inline-flex;
+  flex-direction: column;
+  font-size: 1rem;
+}
+
+label.number{
+  display: inline-flex;
+  flex-direction: column;
+  font-size: 0.8rem;
 }
 
 table {

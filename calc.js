@@ -30,7 +30,7 @@ function getInputValue(parent, name) {
   } else if (input_field.value == '') {
     return 0;
   } else {
-    return parseInt(input_field.value);
+    return parseFloat(input_field.value);
   }
 }
 
@@ -82,6 +82,7 @@ const flat_sub = document.querySelector('div#flat button');
 const circuit_sub = document.querySelector('div#circuit button');
 const additive_sub = document.querySelector('div#additive button');
 const out_table = document.querySelector('div#output table');
+const sum_field = document.querySelector('div#output table tr.comp_sum td[name="comp_sum"]');
 
 let sum = 0;
 
@@ -123,14 +124,33 @@ submit_buttons.forEach(function (button) {
       computed_price = compute_flat(width, len, price);
 
     } else if (parent.id == 'circuit') {
+      broadcastValue(len, 'len');
+      broadcastValue(width, 'width');
       computed_price = compute_circuit(width, len, price);
 
     } else if (parent.id == 'additive') {
       computed_price = price;
     }
     sum += computed_price;
-    document.querySelector('div#output table tr.comp_sum td[name="comp_sum"]').innerHTML = sum;
+    sum_field.innerHTML = sum.toFixed(2);
     console.log(sum)
   })
 })
 
+reset_button.addEventListener('click', () => {
+  sum = 0;
+  sum_field.innerHTML = '';
+  document.querySelectorAll('table tr.comp_part').forEach((row) => {
+    row.innerHTML = '';
+  })
+
+  if (out_table.hidden == false) {
+    out_table.hidden = true;
+  }
+  
+  document.querySelectorAll('input[type="number"]').forEach((number) => {
+    number.value = '';
+  });
+
+  console.log(sum)
+})

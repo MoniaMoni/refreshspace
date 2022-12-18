@@ -18,44 +18,48 @@
 
       <label for="spatial">Gładź, malowanie</label><br>
       <div id="spatial" class="row" name="spatial">
-        <input type="number" name="len" placeholder="Długość (metry)">
-        <input type="number" name="width" placeholder="Szerokość (metry)">
-        <input type="number" name="height" placeholder="Wysokość (metry)">
-        <input type="number" name="price" placeholder="Cena">
+        <label class="number">Długość (metry)<input type="number" name="len"></label>
+        <label class="number">Szerokość (metry)<input type="number" name="width"></label>
+        <label class="number">Wysokość (metry)<input type="number" name="height"></label>
+        <label class="number">Cena<input type="number" name="price"></label>
         <br>
         <label><input type="checkbox" class="walls" value="Ściany" checked>Same ściany</label>
         <label><input type="checkbox" class="wAndC" value="Ściany i sufit">Ściany i sufit</label>
         <br>
         <button type="submit" class="submit">Oblicz</button>
       </div>
+      <br>
 
       <label for="flat">Sufit, podłoga</label><br>
       <div id="flat" class="row"  name="flat">
-        <input type="number" name="len" placeholder="Długość (metry)">
-        <input type="number" name="width" placeholder="Szerokość/wysokość (metry)">
-        <input type="number" name="price" placeholder="Cena">
+        <label class="number">Długość (metry)<input type="number" name="len"></label>
+        <label class="number">Szerokość/wysokość (metry)<input type="number" name="width"></label>
+        <label class="number">Cena<input type="number" name="price"></label>
         <br>
         <label><input type="checkbox" class="ceil" value="Sufit" checked>Sufit</label>
         <label><input type="checkbox" class="floor" value="Podłoga">Podłoga</label>
         <br>
         <button type="submit" class="submit">Oblicz</button>
       </div>
+      <br>
 
       <label for="circuit">Listwy</label><br>
       <div id="circuit" class="row"  name="circuit">
-        <input type="number" name="len" placeholder="Długość (metry)">
-        <input type="number" name="width" placeholder="Szerokość (metry)">
-        <input type="number" name="price" placeholder="Cena">
+        <label class="number">Długość (metry)<input type="number" name="len"></label>
+        <label class="number">Szerokość (metry)<input type="number" name="width"></label>
+        <label class="number">Cena<input type="number" name="price"></label>
         <br>
         <button type="submit" class="submit">Oblicz</button>
       </div>
+      <br>
 
       <label for="additive">Dodatkowa kwota</label><br>
       <div id="additive" class="row"  name="additive">
-        <input type="number" name="price" placeholder="Kwota">
+        <label class="number">Kwota<input type="number" name="price"></label>
         <br>
         <button type="submit" class="submit">Dodaj</button>
       </div>
+      <br>
 
       <div id="output" class="output"  name="output">
         <table hidden="true">
