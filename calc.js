@@ -8,18 +8,16 @@ const spatial_checks = document.querySelectorAll('div#spatial input[type="checkb
 const reset_button = document.querySelector('button[type="reset"]');
 
 
-function compute_spatial(width, len, height, price) {
-  let out = (width + len) * 2 * height * price;
-  console.log('---------> ' + out)
-  return 2 * (width + len) * height * price;
+function compute_spatial(width, len, height) {
+  return 2 * (width + len) * height;
 }
 
-function compute_flat(width, len, price) {
-  return width * len * price;
+function compute_flat(width, len) {
+  return width * len;
 }
 
-function compute_circuit(width, len, price) {
-  return 2 * (width + len) * price;
+function compute_circuit(width, len) {
+  return 2 * (width + len);
 }
 
 function getInputValue(parent, name) {
@@ -83,8 +81,10 @@ const circuit_sub = document.querySelector('div#circuit button');
 const additive_sub = document.querySelector('div#additive button');
 const out_table = document.querySelector('div#output table');
 const sum_field = document.querySelector('div#output table tr.comp_sum td[name="comp_sum"]');
+const surface_sum_field = document.querySelector('div#output table tr.comp_sum td[name="comp_surface_sum"]');
 
 let sum = 0;
+let surface_sum = 0;
 
 function broadcastValue(value, input_name) {
   console.log('input[name="' + input_name + '"]')
@@ -95,53 +95,82 @@ function broadcastValue(value, input_name) {
   return;
 }
 
+function displayComputedRow(out_table, description, surface, price){
+  let row = out_table.insertRow(2);
+  row.classList.add("comp_part");
+  let cell;
+  let row_data = [description, surface.toFixed(2), price.toFixed(2)];
+  for(let i = 0; i < 3; i++){
+    cell = row.insertCell(i);
+    cell.innerHTML = row_data[i];
+  }
+}
+
 submit_buttons.forEach(function (button) {
   button.addEventListener('click', () => {
-    let len, width, height, price, parent, description_box, computed_price;
+    let len, width, height, price, surface, parent_bt, description_box, computed_price;
 
-    parent = button.parentNode;
-    len = getInputValue(parent, 'len');
-    width = getInputValue(parent, 'width');
-    height = getInputValue(parent, 'height');
-    price = getInputValue(parent, 'price');
-    description_box = getChecked(parent);
+    parent_bt = button.parentNode;
+    len = getInputValue(parent_bt, 'len');
+    width = getInputValue(parent_bt, 'width');
+    height = getInputValue(parent_bt, 'height');
+    price = getInputValue(parent_bt, 'price');
+    description_box = getChecked(parent_bt);
 
     if (out_table.hidden == true) {
       out_table.hidden = false;
     }
 
-    if (parent.id == 'spatial') {
+    if (parent_bt.id == 'spatial') {
       broadcastValue(len, 'len');
       broadcastValue(width, 'width');
       if (description_box.classList[0] == 'walls') {
-        computed_price = compute_spatial(width, len, height, price);
+        surface = compute_spatial(width, len, height);
+        computed_price = surface * price;
       } else {
-        computed_price = compute_spatial(width, len, height, price) + compute_flat(width, len, price);
+        surface = compute_spatial(width, len, height) + compute_flat(width, len);
+        computed_price = surface * price;
       }
-    } else if (parent.id == 'flat') {
+      description = description_box.value;
+      
+    } else if (parent_bt.id == 'flat') {
       broadcastValue(len, 'len');
       broadcastValue(width, 'width');
-      computed_price = compute_flat(width, len, price);
+      surface = compute_flat(width, len);
+      computed_price = surface * price;
+      description = description_box.value;
 
-    } else if (parent.id == 'circuit') {
+    } else if (parent_bt.id == 'circuit') {
       broadcastValue(len, 'len');
       broadcastValue(width, 'width');
-      computed_price = compute_circuit(width, len, price);
+      surface = compute_circuit(width, len)
+      computed_price = surface * price;
+      description = "Listwy";
 
-    } else if (parent.id == 'additive') {
+
+    } else if (parent_bt.id == 'additive') {
       computed_price = price;
+      surface = 0;
+      description = 'Dodatkowa kwota';
     }
+    displayComputedRow(out_table, description, surface, computed_price)
+
     sum += computed_price;
+    if(parent_bt.id != 'circuit'){
+      surface_sum += surface;
+    }
     sum_field.innerHTML = sum.toFixed(2);
-    console.log(sum)
+    surface_sum_field.innerHTML = surface_sum.toFixed(2);
   })
 })
 
 reset_button.addEventListener('click', () => {
   sum = 0;
+  surface_sum = 0;
   sum_field.innerHTML = '';
+  surface_sum_field.innerHTML = '';
   document.querySelectorAll('table tr.comp_part').forEach((row) => {
-    row.innerHTML = '';
+    row.remove();
   })
 
   if (out_table.hidden == false) {
@@ -151,8 +180,4 @@ reset_button.addEventListener('click', () => {
   document.querySelectorAll('input[type="number"]').forEach((number) => {
     number.value = '';
   });
-
-  console.log(sum)
 })
-
-// generate table rows
